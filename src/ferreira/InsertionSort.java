@@ -11,14 +11,9 @@ public class InsertionSort {
          */
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < myArray.length; firstUnsortedIndex++){
 
-            //Save the element the element that is overwriten
             int newElement =  myArray[firstUnsortedIndex];
             int i;
 
-            /**
-             *As we transverse the array we look for the first element of the array or for a small element
-             * When the element is found there is not need to continue to loop and the shift to the right
-             */
             for ( i = firstUnsortedIndex; i > 0 && myArray[i - 1] > newElement; i--){
                 myArray[i] = myArray[i - 1];
             }
