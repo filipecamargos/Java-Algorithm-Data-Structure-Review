@@ -1,5 +1,5 @@
 package ferreira;
-
+import java.util.Arrays;
 import javax.swing.plaf.synth.SynthTextAreaUI;
 
 public class Bubblesorting {

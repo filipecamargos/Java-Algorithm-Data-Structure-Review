@@ -13,7 +13,7 @@ public class QuickSort {
         }
     }
 
-    //take the array to be sore
+    //take the array to be sort
     public static void quickSort(int[] input, int start, int end) {
         //If that is the case we have an one element array so it just returns
         if (end - start < 2) {
