@@ -3,7 +3,7 @@ package ferreira;
 public class QuickSort {
     public static void main(String[] arg){
         //Give an Array
-        int[] myArray = {3, 5, -6, 7, 30, 200, -20};
+        int[] myArray = {3, 5, -6, 7, 30, 200, -20, 33, 4, 7, 128, 99, 1000, 35, 3, 0};
 
         quickSort(myArray, 0, myArray.length);
 
@@ -14,37 +14,36 @@ public class QuickSort {
     }
 
     //take the array to be sort
-    public static void quickSort(int[] input, int start, int end) {
-        //If that is the case we have an one element array so it just returns
-        if (end - start < 2) {
+    public static void quickSort(int [] array, int start, int end) {
+
+        if ((end - start) < 2) {
             return;
         }
-
-        int pivotIndex = partition(input, start, end);
-        quickSort(input, start, pivotIndex);
-        quickSort(input, pivotIndex + 1, end);
+        //Create the recursion calling here
+        int partitionPivot = partition(array, start, end);
+        quickSort(array, start, partitionPivot);
+        quickSort(array, partitionPivot + 1, end);
     }
 
-    //Will return the correct position of the pivot in the sorted array
-    public static int partition(int[] input, int start, int end) {
-        int pivot = input[start];
-        int i = start;
-        int j = end;
-
+    public static int partition(int[] array, int start, int end) {
+        //First get the pivot, i for the beginning and j for the end
+        int pivot = array[start], i = start, j = end;
+        //Create the condition for to find part the array
         while (i < j) {
-            //Empty loop body
-            while (i < j && input[--j] >= pivot) ;
+            //Decrement j until it finds a number that is smaller than pivot
+            while (i < j && array[--j] >= pivot) ;
             if (i < j) {
-                input[i] = input[j];
+                array[i] = array[j];
             }
-            //Empty Look body
-            while (i < j && input[++i] <= pivot) ;
+            //increment i until it finds a number that is grater than pivot
+            while (i < j && array[++i] <= pivot) ;
             if (i < j) {
-                input[j] = input[i];
+                array[j] = array[i];
             }
         }
+        array[j] = pivot;
 
-        input[j] = pivot;
         return j;
     }
+
 }
